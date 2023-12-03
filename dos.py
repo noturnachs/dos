@@ -101,6 +101,7 @@ def send_requests():
         else:
             with lock:
                 print(f"Target {url} - Response Code: {code}")
+                break  # Exit the loop if response code is not 200
 
 
 for _ in range(100):
