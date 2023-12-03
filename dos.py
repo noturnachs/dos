@@ -98,6 +98,7 @@ def send_requests():
                 print(
                     f"Target {url} - Response Code: {code} - {successful_requests} Requests Sent Successfully"
                 )
+                continue
         else:
             with lock:
                 print(f"Target {url} - Response Code: {code}")
