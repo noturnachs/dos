@@ -64,13 +64,11 @@ def httpcall(url):
     request.add_header("Connection", "keep-alive")
     request.add_header("Host", host)
     try:
-        urllib.request.urlopen(request)
-    
-    except urllib.request.URLError as e:
+        response = urllib.request.urlopen(request)
+        code = response.getcode()
+    except urllib.error.URLError as e:
         print(e)
         sys.exit()
-    else:
-        code = 200
     return code
 
 
@@ -92,7 +90,7 @@ else:
 def send_requests():
     global successful_requests
     global thread_counter
-    while True:  
+    while True:
         code = httpcall(url)
         if code == 200:
             with lock:
