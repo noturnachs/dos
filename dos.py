@@ -96,11 +96,11 @@ def send_requests():
             with lock:
                 successful_requests += 1
                 print(
-                    f"Thread {thread_counter} - Response Code: {code} - {successful_requests} Requests Sent Successfully"
+                    f"Target {url} - Response Code: {code} - {successful_requests} Requests Sent Successfully"
                 )
         else:
             with lock:
-                print(f"Thread {thread_counter} - Response Code: {code}")
+                print(f"Target {url} - Response Code: {code}")
 
 
 for _ in range(100):
